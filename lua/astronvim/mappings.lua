@@ -30,6 +30,10 @@ maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
 maps.n["<C-q>"] = { "<cmd>qa!<cr>", desc = "Force quit" }
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
 maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
+if is_available "hop.nvim" then
+  maps.n["s"] = { "<cmd>HopChar2<cr>", desc = "Hop by 2 chars" }
+  maps.n["S"] = { "<cmd>HopWord<cr>", desc = "Hop by word" }
+end
 -- TODO: Remove when dropping support for <Neovim v0.10
 if not vim.ui.open then maps.n["gx"] = { utils.system_open, desc = "Open the file under cursor with system app" } end
 
@@ -50,9 +54,9 @@ maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = "AstroNvim Changelog"
 -- Manage Buffers
 maps.n["<leader>c"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" }
 maps.n["<leader>C"] = { function() require("astronvim.utils.buffer").close(0, true) end, desc = "Force close buffer" }
-maps.n["]b"] =
+maps.n["<S-l>"] =
   { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
-maps.n["[b"] = {
+maps.n["<S-h>"] = {
   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
   desc = "Previous buffer",
 }
@@ -231,7 +235,7 @@ end
 -- SymbolsOutline
 if is_available "aerial.nvim" then
   maps.n["<leader>l"] = sections.l
-  maps.n["<leader>lS"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
+  maps.n["<leader>lo"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
 end
 
 -- Telescope
