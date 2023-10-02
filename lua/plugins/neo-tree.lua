@@ -121,7 +121,7 @@ return {
           O = "system_open",
           Y = "copy_selector",
           h = "parent_or_close",
-          l = "child_or_open",
+          l = "open_with_window_picker",
           o = "open",
         },
         fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode

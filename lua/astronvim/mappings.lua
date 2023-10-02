@@ -73,10 +73,10 @@ maps.n["<leader>b"] = sections.b
 maps.n["<leader>bc"] =
   { function() require("astronvim.utils.buffer").close_all(true) end, desc = "Close all buffers except current" }
 maps.n["<leader>bC"] = { function() require("astronvim.utils.buffer").close_all() end, desc = "Close all buffers" }
-maps.n["<leader>bl"] =
+maps.n["<leader>bh"] =
   { function() require("astronvim.utils.buffer").close_left() end, desc = "Close all buffers to the left" }
 maps.n["<leader>bp"] = { function() require("astronvim.utils.buffer").prev() end, desc = "Previous buffer" }
-maps.n["<leader>br"] =
+maps.n["<leader>bl"] =
   { function() require("astronvim.utils.buffer").close_right() end, desc = "Close all buffers to the right" }
 maps.n["<leader>bs"] = sections.bs
 maps.n["<leader>bse"] = { function() require("astronvim.utils.buffer").sort "extension" end, desc = "By extension" }
@@ -87,7 +87,7 @@ maps.n["<leader>bsi"] = { function() require("astronvim.utils.buffer").sort "buf
 maps.n["<leader>bsm"] = { function() require("astronvim.utils.buffer").sort "modified" end, desc = "By modification" }
 
 if is_available "heirline.nvim" then
-  maps.n["<leader>bb"] = {
+  maps.n["<leader>bj"] = {
     function()
       require("astronvim.utils.status.heirline").buffer_picker(function(bufnr) vim.api.nvim_win_set_buf(0, bufnr) end)
     end,
