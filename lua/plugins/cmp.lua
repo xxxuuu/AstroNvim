@@ -109,6 +109,7 @@ return {
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
           { name = "path", priority = 250 },
+          { name = "copilot", priority = 1500 },
         },
       }
     end,
