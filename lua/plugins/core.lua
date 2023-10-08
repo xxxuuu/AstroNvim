@@ -150,4 +150,11 @@ return {
     },
     opts = function(_, opts) table.insert(opts.sources, { name = "copilot" }) end,
   },
+  {
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup()
+    end,
+  },
 }
